@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void createObject(View view)
+    public void createObjectGroup(View view)
     {
-        ObjectType ot = new ObjectType("Car", new Date());
+        ObjectGroup ot = new ObjectGroup("Car", "This is all my cars");
         Log.i("CreateObjectButton", "This button created an object");
     };
 }
