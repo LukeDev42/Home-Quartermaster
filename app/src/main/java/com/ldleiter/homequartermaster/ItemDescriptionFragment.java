@@ -12,8 +12,8 @@ import android.widget.TextView;
 public class ItemDescriptionFragment extends Fragment
 {
     public static final String ARG_ITEM_ID = "item_id";
-
-    private Item item;
+    public QuartermasterDatabase qmDb;
+    private ItemTable item;
 
     public ItemDescriptionFragment()
     {
@@ -24,17 +24,17 @@ public class ItemDescriptionFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
-        int bandId = 1;
+        qmDb = QuartermasterDatabase.getInstance(getActivity().getApplicationContext());
+        int itemId = 1;
 
         Bundle args = getArguments();
         if (args != null)
         {
-            bandId = args.getInt(ARG_ITEM_ID);
+            itemId = args.getInt(ARG_ITEM_ID);
         }
 
         // Get the selected band
-        item = ItemRepository.getInstance(requireContext()).getItem(bandId);
+        item = ItemRepository.getInstance(requireContext()).getItem(itemId);
     }
 
     @Override

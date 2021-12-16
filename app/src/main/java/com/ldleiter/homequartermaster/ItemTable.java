@@ -4,12 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.ForeignKey;
 
 @Entity
 public class ItemTable
 {
-    public ItemTable(long id, @NonNull String name, String description)
+    public ItemTable(int id, @NonNull String name, String description)
     {
         this.setId(id);
         this.setName(name);
@@ -19,7 +18,7 @@ public class ItemTable
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    private long id;
+    private int id;
 
     @NonNull
     @ColumnInfo(name = "name")
@@ -31,7 +30,7 @@ public class ItemTable
     @ColumnInfo(name = "CreationTime")
     private long creationTime;
 
-    public void setId(long id)
+    public void setId(int id)
     {
         this.id = id;
     }
@@ -46,7 +45,7 @@ public class ItemTable
         this.name = name;
     }
 
-    public long getId()
+    public int getId()
     {
         return id;
     }

@@ -9,7 +9,8 @@ import java.util.List;
 public class ItemRepository
 {
     private static ItemRepository instance;
-    private List<Item> mItems;
+    private List<ItemTable> mItems;
+    private QuartermasterDatabase qmDb;
 
     public static ItemRepository getInstance(Context context)
     {
@@ -22,24 +23,25 @@ public class ItemRepository
 
     private ItemRepository(Context context)
     {
-        mItems = new ArrayList<>();
-        Resources res = context.getResources();
-        String[] bands = res.getStringArray(R.array.items);
-        String[] descriptions = res.getStringArray(R.array.itemDescriptions);
-        for (int i = 0; i < bands.length; i++)
-        {
-            mItems.add(new Item(i + 1, bands[i], descriptions[i]));
-        }
+        qmDb = QuartermasterDatabase.getInstance(context.getApplicationContext());
+        mItems = qmDb.itemDao().getItems();
+//        Resources res = context.getResources();
+//        String[] bands = res.getStringArray(R.array.items);
+//        String[] descriptions = res.getStringArray(R.array.itemDescriptions);
+//        for (int i = 0; i < bands.length; i++)
+//        {
+//            mItems.add(new Item(i + 1, bands[i], descriptions[i]));
+//        }
     }
 
-    public List<Item> getItems()
+    public List<ItemTable> getItems()
     {
         return mItems;
     }
 
-    public Item getItem(int itemId)
+    public ItemTable getItem(int itemId)
     {
-        for (Item item : mItems)
+        for (ItemTable item : mItems)
         {
             if (item.getId() == itemId)
             {

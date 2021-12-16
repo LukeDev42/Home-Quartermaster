@@ -33,7 +33,7 @@ public class ItemListFragment extends Fragment
         };
 
         RecyclerView recyclerView = rootView.findViewById(R.id.item_list);
-        List<Item> items = ItemRepository.getInstance(requireContext()).getItems();
+        List<ItemTable> items = ItemRepository.getInstance(requireContext()).getItems();
         recyclerView.setAdapter(new ItemAdapter(items, onClickListener));
 
         return rootView;
@@ -41,10 +41,10 @@ public class ItemListFragment extends Fragment
 
     private class ItemAdapter extends RecyclerView.Adapter<ItemHolder>
     {
-        private final List<Item> mItems;
+        private final List<ItemTable> mItems;
         private final View.OnClickListener mOnClickListener;
 
-        public ItemAdapter(List<Item> items, View.OnClickListener onClickListener)
+        public ItemAdapter(List<ItemTable> items, View.OnClickListener onClickListener)
         {
             mItems = items;
             mOnClickListener = onClickListener;
@@ -61,7 +61,7 @@ public class ItemListFragment extends Fragment
         @Override
         public void onBindViewHolder(ItemHolder holder, int position)
         {
-            Item item = mItems.get(position);
+            ItemTable item = mItems.get(position);
             holder.bind(item);
             holder.itemView.setTag(item.getId());
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -84,7 +84,7 @@ public class ItemListFragment extends Fragment
             mNameTextView = itemView.findViewById(R.id.item_name);
         }
 
-        public void bind(Item item)
+        public void bind(ItemTable item)
         {
             mNameTextView.setText(item.getName());
         }
