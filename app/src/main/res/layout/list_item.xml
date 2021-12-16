@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/item_name"
         tools:text="item"
-        style="@style/itemGroupListName">
-    </TextView>
+        style="@style/itemGroupListName"></TextView>
 
 </LinearLayout>

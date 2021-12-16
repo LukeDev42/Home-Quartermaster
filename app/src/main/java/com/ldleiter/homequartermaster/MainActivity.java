@@ -11,17 +11,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity
+{
+    QuartermasterDatabase qmDb;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        qmDb = QuartermasterDatabase.getInstance(getApplicationContext());
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
 
-        if (navHostFragment != null) {
+        if (navHostFragment != null)
+        {
             NavController navController = navHostFragment.getNavController();
             AppBarConfiguration appBarConfig = new AppBarConfiguration.
                     Builder(navController.getGraph()).build();
@@ -30,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
+    public boolean onSupportNavigateUp()
+    {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return navController.navigateUp() || super.onSupportNavigateUp();
     }
+
     public void createObjectGroup(View view)
     {
         Log.i("CreateObjectButton", "This button created an object");
-    };
+    }
 }

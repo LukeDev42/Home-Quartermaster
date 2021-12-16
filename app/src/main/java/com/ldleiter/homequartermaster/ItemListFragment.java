@@ -19,10 +19,12 @@ public class ItemListFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         View rootView = inflater.inflate(R.layout.fragment_item_list, container, false);
 
-        View.OnClickListener onClickListener = itemView -> {
+        View.OnClickListener onClickListener = itemView ->
+        {
             int selectedItemId = (int) itemView.getTag();
             Bundle args = new Bundle();
             args.putInt(ItemDescriptionFragment.ARG_ITEM_ID, selectedItemId);
@@ -37,24 +39,28 @@ public class ItemListFragment extends Fragment
         return rootView;
     }
 
-    private class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
+    private class ItemAdapter extends RecyclerView.Adapter<ItemHolder>
+    {
         private final List<Item> mItems;
         private final View.OnClickListener mOnClickListener;
 
-        public ItemAdapter(List<Item> items, View.OnClickListener onClickListener) {
+        public ItemAdapter(List<Item> items, View.OnClickListener onClickListener)
+        {
             mItems = items;
             mOnClickListener = onClickListener;
         }
 
         @NonNull
         @Override
-        public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+        {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             return new ItemHolder(layoutInflater, parent);
         }
 
         @Override
-        public  void onBindViewHolder(ItemHolder holder, int position){
+        public void onBindViewHolder(ItemHolder holder, int position)
+        {
             Item item = mItems.get(position);
             holder.bind(item);
             holder.itemView.setTag(item.getId());
@@ -62,20 +68,24 @@ public class ItemListFragment extends Fragment
         }
 
         @Override
-        public int getItemCount() {
+        public int getItemCount()
+        {
             return mItems.size();
         }
     }
 
-    private static class ItemHolder extends RecyclerView.ViewHolder {
+    private static class ItemHolder extends RecyclerView.ViewHolder
+    {
         private final TextView mNameTextView;
 
-        public ItemHolder(LayoutInflater inflater, ViewGroup parent) {
+        public ItemHolder(LayoutInflater inflater, ViewGroup parent)
+        {
             super(inflater.inflate(R.layout.list_item, parent, false));
             mNameTextView = itemView.findViewById(R.id.item_name);
         }
 
-        public void bind(Item item) {
+        public void bind(Item item)
+        {
             mNameTextView.setText(item.getName());
         }
     }

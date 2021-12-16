@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/itemGroupName"
-        tools:text="item name"/>
+        tools:text="item name" />
 
     <TextView
         android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/itemGroupDescription"
-        tools:text="description"/>
+        tools:text="description" />
 
 </LinearLayout>

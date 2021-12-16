@@ -15,12 +15,14 @@ public class ItemDescriptionFragment extends Fragment
 
     private Item item;
 
-    public ItemDescriptionFragment() {
+    public ItemDescriptionFragment()
+    {
         // Required empty public constructor
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         int bandId = 1;
@@ -37,10 +39,12 @@ public class ItemDescriptionFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         View rootView = inflater.inflate(R.layout.fragment_item_description, container, false);
 
-        if (item != null) {
+        if (item != null)
+        {
             TextView nameTextView = rootView.findViewById(R.id.itemName);
             nameTextView.setText(item.getName());
 
