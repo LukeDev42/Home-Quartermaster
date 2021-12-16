@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">Home Quartermaster</string>
+
+    <string name="description">Description</string>
+
+    <string-array name="items">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+        <item>Item 9</item>
+        <item>Item 10</item>
+        <item>Item 11</item>
+        <item>Item 12</item>
+        <item>Item 13</item>
+        <item>Item 14</item>
+        <item>Item 15</item>
+    </string-array>
+
+    <string-array name="itemDescriptions">
+        <item>This is the first item</item>
+        <item>This is the second item</item>
+        <item>This is the third item</item>
+        <item>This is the fourth item</item>
+        <item>This is the fifth item</item>
+        <item>This is the sixth item</item>
+        <item>This is the seventh item</item>
+        <item>This is the eighth item</item>
+        <item>This is the ninth item</item>
+        <item>This is the tenth item</item>
+        <item>This is the eleventh item</item>
+        <item>This is the twelfth item</item>
+        <item>This is the thirteenth item</item>
+        <item>This is the fourteenth item</item>
+        <item>This is the fifteenth item</item>
+    </string-array>
 </resources>
