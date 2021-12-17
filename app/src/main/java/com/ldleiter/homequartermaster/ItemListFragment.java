@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,7 @@ public class ItemListFragment extends Fragment
                              Bundle savedInstanceState)
     {
         View rootView = inflater.inflate(R.layout.fragment_item_list, container, false);
-
+        container.removeAllViews();
         View.OnClickListener onClickListener = itemView ->
         {
             int selectedItemId = (int) itemView.getTag();
@@ -37,6 +40,28 @@ public class ItemListFragment extends Fragment
         recyclerView.setAdapter(new ItemAdapter(items, onClickListener));
 
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
+        Log.d("FragmentOnViewCreated", "Function ran");
+        View btn = view.findViewById(R.id.addButton);
+        btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Fragment newItemFragment = new NewItemFragment();
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.item_list_container, newItemFragment ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+            }
+
+        });
+
     }
 
     private class ItemAdapter extends RecyclerView.Adapter<ItemHolder>

@@ -15,6 +15,12 @@
     </style>
 
 
+    <style name="inputLabel">
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="itemGroupListName">
         <item name="android:textSize">26sp</item>
         <item name="android:padding">8dp</item>

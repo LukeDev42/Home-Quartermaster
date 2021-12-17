@@ -1,6 +1,7 @@
 package com.ldleiter.homequartermaster;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -19,10 +20,10 @@ public abstract class QuartermasterDatabase extends RoomDatabase
     {
         if (qmDatabase == null)
         {
+            Log.d("DatabaseMessage", "Building the database");
             qmDatabase = Room.databaseBuilder(context, QuartermasterDatabase.class, DATABASE_NAME)
                     .allowMainThreadQueries()
                     .build();
-            qmDatabase.addStarterData();
         }
 
         return qmDatabase;

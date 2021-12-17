@@ -14,10 +14,7 @@ public class ItemRepository
 
     public static ItemRepository getInstance(Context context)
     {
-        if (instance == null)
-        {
-            instance = new ItemRepository(context);
-        }
+        instance = new ItemRepository(context);
         return instance;
     }
 
@@ -25,13 +22,6 @@ public class ItemRepository
     {
         qmDb = QuartermasterDatabase.getInstance(context.getApplicationContext());
         mItems = qmDb.itemDao().getItems();
-//        Resources res = context.getResources();
-//        String[] bands = res.getStringArray(R.array.items);
-//        String[] descriptions = res.getStringArray(R.array.itemDescriptions);
-//        for (int i = 0; i < bands.length; i++)
-//        {
-//            mItems.add(new Item(i + 1, bands[i], descriptions[i]));
-//        }
     }
 
     public List<ItemTable> getItems()
@@ -49,5 +39,10 @@ public class ItemRepository
             }
         }
         return null;
+    }
+
+    public void insertItem(ItemTable newItem)
+    {
+        qmDb.itemDao().insertItem(newItem);
     }
 }

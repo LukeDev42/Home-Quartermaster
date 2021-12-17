@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
-    QuartermasterDatabase qmDb;
+    public QuartermasterDatabase qmDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,10 +43,5 @@ public class MainActivity extends AppCompatActivity
     {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return navController.navigateUp() || super.onSupportNavigateUp();
-    }
-
-    public void createObjectGroup(View view)
-    {
-        Log.i("CreateObjectButton", "This button created an object");
     }
 }
